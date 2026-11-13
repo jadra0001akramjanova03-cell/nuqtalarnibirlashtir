@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuqtalarni birlashtir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="logo">✦ NUQTALARNI BIRLASHTIR</div>
+      <p class="subtitle">Bir xil rangdagi nuqtalarni toping va birlashtiring!</p>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <span>BOSQICH</span>
+        <strong id="level">1 / 20</strong>
+      </div>
+      <div class="stat">
+        <span>JUFTLIKLAR</span>
+        <strong id="pairs">0 / 2</strong>
+      </div>
+      <div class="stat">
+        <span>HOLAT</span>
+        <strong id="status">O‘yin</strong>
+      </div>
+    </section>
+
+    <section class="game-panel">
+      <div class="level-info">
+        <h2 id="levelTitle">1-bosqich</h2>
+        <p id="levelDescription">Bir xil rangdagi nuqtalarni birlashtiring.</p>
+      </div>
+
+      <div id="board" class="board"></div>
+
+      <div class="controls">
+        <button id="resetBtn">↻ Qayta boshlash</button>
+        <button id="hintBtn">✦ Yordam</button>
+        <button id="nextBtn" disabled>Keyingi bosqich →</button>
+      </div>
+    </section>
+
+    <section class="instructions">
+      <h3>Qanday o‘ynaladi?</h3>
+      <p>1. Rangli nuqtalardan birini bosing.</p>
+      <p>2. Sichqoncha yoki barmog‘ingizni ushlab, shu rangdagi ikkinchi nuqtagacha olib boring.</p>
+      <p>3. Barcha rangli juftliklarni birlashtiring va keyingi bosqichga o‘ting.</p>
+    </section>
+
+    <footer>
+      Loyiha muallifi: <strong>AKRAMJONOVA JADRA MARATOVNA</strong>
+    </footer>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="success-icon">✦</div>
+      <h2 id="modalTitle">Ajoyib!</h2>
+      <p id="modalText">Bosqich bajarildi.</p>
+      <button id="modalBtn">Davom etish</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

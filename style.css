@@ -1,0 +1,298 @@
+
+:root {
+  --gold: #ffd21f;
+  --gold-light: #fff3a3;
+  --gold-dark: #b88600;
+  --black: #050505;
+  --panel: #101010;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 25px 15px;
+  background:
+    radial-gradient(ellipse at top, #282000 0%, transparent 45%),
+    #050505;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: min(650px, 100%);
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  color: var(--gold);
+  font-size: clamp(23px, 5vw, 34px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px #ffd21f88;
+}
+
+.subtitle {
+  color: #c8c8c8;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  padding: 14px 8px;
+  text-align: center;
+  background: #111;
+  border: 1px solid #665000;
+  border-radius: 12px;
+}
+
+.stat span {
+  display: block;
+  color: #aaa;
+  font-size: 10px;
+  margin-bottom: 7px;
+}
+
+.stat strong {
+  color: var(--gold);
+  font-size: 17px;
+}
+
+.game-panel,
+.instructions {
+  background: linear-gradient(145deg, #151515, #090909);
+  border: 1px solid #5e4900;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 0 25px #ffd21f0c;
+}
+
+.level-info {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.level-info h2 {
+  color: var(--gold);
+  font-size: 23px;
+  margin-bottom: 7px;
+}
+
+.level-info p {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  width: min(100%, 430px);
+  aspect-ratio: 1;
+  margin: auto;
+  padding: 7px;
+  border: 1px solid #806300;
+  border-radius: 12px;
+  background: #050505;
+  touch-action: none;
+  user-select: none;
+}
+
+.cell {
+  position: relative;
+  min-width: 0;
+  border-radius: 5px;
+  background: #171717;
+  border: 1px solid #242424;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.cell.path {
+  background: var(--path-color);
+  border-color: var(--path-color);
+  box-shadow: 0 0 8px var(--path-color);
+}
+
+.cell.endpoint {
+  background: #202020;
+  border: 2px solid var(--dot-color);
+  box-shadow: 0 0 12px var(--dot-color);
+  z-index: 1;
+}
+
+.dot {
+  width: 48%;
+  height: 48%;
+  border-radius: 50%;
+  background: var(--dot-color);
+  box-shadow: 0 0 12px var(--dot-color);
+}
+
+.cell.endpoint.path {
+  background: #202020;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+button {
+  border: 1px solid var(--gold-dark);
+  background: #171300;
+  color: var(--gold-light);
+  border-radius: 9px;
+  padding: 12px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover:not(:disabled) {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 0 15px #ffd21f77;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+#nextBtn {
+  background: var(--gold);
+  color: #000;
+}
+
+.instructions {
+  margin-top: 17px;
+}
+
+.instructions h3 {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.instructions p {
+  color: #c7c7c7;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+footer {
+  text-align: center;
+  color: #888;
+  font-size: 11px;
+  margin: 22px 0 5px;
+}
+
+footer strong {
+  color: var(--gold);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #000d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  width: min(360px, 100%);
+  text-align: center;
+  padding: 30px 20px;
+  background: #111;
+  border: 1px solid var(--gold);
+  border-radius: 18px;
+  box-shadow: 0 0 30px #ffd21f33;
+}
+
+.success-icon {
+  font-size: 48px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.modal-box h2 {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.modal-box p {
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* YORDAM TUGMASI ANIMATSIYASI */
+
+.cell.hint {
+  animation: hintPulse .35s ease-in-out 3;
+}
+
+@keyframes hintPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--dot-color);
+  }
+
+  50% {
+    transform: scale(.8);
+    box-shadow: 0 0 22px var(--dot-color);
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 15px 9px;
+  }
+
+  .game-panel,
+  .instructions {
+    padding: 13px;
+  }
+
+  .stat {
+    padding: 11px 4px;
+  }
+
+  .stat strong {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 11px 10px;
+    font-size: 12px;
+  }
+}
